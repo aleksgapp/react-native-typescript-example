@@ -1,9 +1,11 @@
 package com.myawesomeproject.module.ui;
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -31,5 +33,27 @@ public class UIAndroidNativeModule extends ReactContextBaseJavaModule {
         final DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         callback.invoke(displayMetrics.density, displayMetrics.densityDpi,
                 displayMetrics.heightPixels, displayMetrics.widthPixels);
+    }
+
+    @ReactMethod
+    public void getConfiguration(final Promise promise) {
+        final Configuration configuration = Resources.getSystem().getConfiguration();
+
+        final String orientationName;
+        switch (configuration.orientation) {
+            case Configuration.ORIENTATION_LANDSCAPE: {
+                orientationName = "landscape";
+                break;
+            }
+            case Configuration.ORIENTATION_PORTRAIT: {
+                orientationName = "portrait";
+                break;
+            }
+            default: {
+                orientationName = "undefined";
+            }
+        }
+
+        promise.resolve(orientationName);
     }
 }

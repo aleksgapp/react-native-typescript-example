@@ -29,6 +29,7 @@ export interface State {
   densityDpi: string;
   height: string;
   width: string;
+  orientation: string;
 }
 
 /**
@@ -39,16 +40,23 @@ export default class App extends React.PureComponent<Props, State> {
   constructor() {
     super();
     this.testCallback = this.testCallback.bind(this);
-    this.state = { density: '', densityDpi: '', height: '', width: '' };
+    this.state = { density: '', densityDpi: '', height: '', width: '', orientation: '' };
   }
   componentWillMount() {
     this.buildScreenSpecText();
+    this.checkOrientation();
   }
 
   buildScreenSpecText = () => {
     if (Platform.OS === 'android') {
       UIAndroidNativeModule.getScreenSize(this.testCallback);
     }
+  }
+
+  checkOrientation = () => {
+    UIAndroidNativeModule.getConfiguration().then((orientation: string) => {
+      this.setState({ orientation });
+    });
   }
 
   testCallback(density: string, densityDpi: string, height: string, width: string) {
@@ -59,16 +67,17 @@ export default class App extends React.PureComponent<Props, State> {
    * Render the app with the header and home screen
    */
   render(): JSX.Element {
-    const { density } = this.state;
-    const { densityDpi } = this.state;
+    const { density, densityDpi } = this.state;
     const { height } = this.state;
     const { width } = this.state;
+    const { orientation } = this.state;
 
     return (
       <Provider store={store}>
         <View style={styles.container}>
           <Header title='InboxApp' avatar='G' />
           {Platform.OS === 'android' && <Text>>Native UI density: {density} dpi: {densityDpi} height: {height} width: {width}</Text>}
+          {Platform.OS === 'android' && <Text>>Orientation: {orientation}</Text>}
           <HomeScreen />
           {Platform.OS === 'android' && <Button title='show me' onPress={() => ToastAndroidNativeModule.showMe()} />}
           {Platform.OS === 'android' && <Button title='show toast' onPress={() => ToastAndroidNativeModule.showToast('Hello toast', ToastAndroidNativeModule.LONG)} />}
