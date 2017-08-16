@@ -67,9 +67,7 @@ export default class App extends React.PureComponent<Props, State> {
    * Render the app with the header and home screen
    */
   render(): JSX.Element {
-    const { density, densityDpi } = this.state;
-    const { height } = this.state;
-    const { width } = this.state;
+    const { density, densityDpi, height, width } = this.state;
     const { orientation } = this.state;
 
     return (
