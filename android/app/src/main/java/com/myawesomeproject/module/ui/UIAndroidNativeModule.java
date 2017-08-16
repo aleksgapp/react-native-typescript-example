@@ -37,8 +37,12 @@ public class UIAndroidNativeModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getConfiguration(final Promise promise) {
-        final Configuration configuration = Resources.getSystem().getConfiguration();
+        final Configuration configuration =
+                getReactApplicationContext().getResources().getSystem().getConfiguration();
+        promise.resolve(getOrientation(configuration));
+    }
 
+    public String getOrientation(final Configuration configuration) {
         final String orientationName;
         switch (configuration.orientation) {
             case Configuration.ORIENTATION_LANDSCAPE: {
@@ -53,7 +57,6 @@ public class UIAndroidNativeModule extends ReactContextBaseJavaModule {
                 orientationName = "undefined";
             }
         }
-
-        promise.resolve(orientationName);
+        return orientationName;
     }
 }
