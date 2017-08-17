@@ -1,14 +1,14 @@
 [
-  {"id": 1, "sender": "user 1", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
-  {"id": 2, "sender": "admin 1", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
-  {"id": 3, "sender": "accounts 1", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
-  {"id": 4, "sender": "user 2", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
-  {"id": 5, "sender": "admin 2", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
-  {"id": 6, "sender": "accounts 2", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
-  {"id": 7, "sender": "user 3", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
-  {"id": 8, "sender": "admin 3", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
-  {"id": 9, "sender": "accounts 3", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
-  {"id": 10, "sender": "user 4", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
-  {"id": 11, "sender": "admin 4", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
-  {"id": 12, "sender": "accounts 4", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"}
+  {"id": 1, "sender": "../../assets/images/1.jpg", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
+  {"id": 2, "sender": "../../assets/images/2.jpg", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
+  {"id": 3, "sender": "../../assets/images/3.jpg", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
+  {"id": 4, "sender": "../../assets/images/1.jpg", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
+  {"id": 5, "sender": "../../assets/images/2.jpg", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
+  {"id": 6, "sender": "../../assets/images/3.jpg", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
+  {"id": 7, "sender": "../../assets/images/1.jpg", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
+  {"id": 8, "sender": "../../assets/images/2.jpg", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
+  {"id": 9, "sender": "../../assets/images/3.jpg", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"},
+  {"id": 10, "sender": "../../assets/images/1.jpg", "title": "Hello mate", "body": "How are you doing?", "sent": "01-08-2017 14:18", "received": "01-08-2017 14:20"},
+  {"id": 11, "sender": "../../assets/images/2.jpg", "title": "Welcome", "body": "Welcome to the team", "sent": "02-08-2017 14:18", "received": "02-08-2017 14:20"},
+  {"id": 12, "sender": "../../assets/images/3.jpg", "title": "Payment received", "body": "We received your payment. Thanks.", "sent": "03-08-2017 14:18", "received": "03-08-2017 14:20"}
 ]

@@ -5,7 +5,7 @@ export interface Message {
   /**
    * Unique id for the message
    */
-  id: Number;
+  id: number;
 
   /**
    * Name of the sender

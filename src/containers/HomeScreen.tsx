@@ -56,7 +56,9 @@ export class HomeScreen extends React.PureComponent<Props, State> {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchUser());
-    dispatch(fetchMessages());
+    setTimeout(() => {
+      dispatch(fetchMessages());
+    }, 5000);
   }
 
   /**
@@ -64,7 +66,7 @@ export class HomeScreen extends React.PureComponent<Props, State> {
    */
   _renderItem = (metadata: any) => {
     const item = metadata.item as Message;
-    return (<InboxItem title={item.title} body={item.body} avatar={item.sender} />);
+    return (<InboxItem id={item.id} title={item.title} body={item.body} avatar={item.sender} />);
   }
 
   /**
@@ -78,9 +80,17 @@ export class HomeScreen extends React.PureComponent<Props, State> {
    * Renders the home screen
    */
   render(): JSX.Element {
-    const { user, messages } = this.props;
+    let { user, messages } = this.props;
     if (!user) {
-      return <Text>Loading</Text>;
+      user = { id: -1, fullName: '            ', avatar: '  ' } as User;
+    }
+    if (!messages) {
+      const dummyMessages = [];
+      for (let i = 0; i < 10; i++) {
+        let dummyMessageTpl = {id: i, sender: '', title: '===================', body: '=====================', sent: '', received: ''} as Message;
+        dummyMessages.push(dummyMessageTpl);
+      }
+      messages = dummyMessages;
     }
     return (
       <View style={styles.container}>

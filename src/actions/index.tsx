@@ -87,7 +87,9 @@ export const fetchMessages = () => (dispatch: Dispatch<HomeScreenAction>): Promi
   dispatch(requestMessages());
   return fetch(constants.FETCH_MESSAGES_URL)
     .then(response => response.json())
-    .then(json => dispatch(receiveMessages(json, false)))
+    .then(json => {
+      return dispatch(receiveMessages(json, false))
+    })
     .catch(e => {
       console.error(e);
       return dispatch(receiveMessages([], true));
