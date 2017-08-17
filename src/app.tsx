@@ -43,8 +43,10 @@ export default class App extends React.PureComponent<Props, State> {
     this.state = { density: '', densityDpi: '', height: '', width: '', orientation: '' };
   }
   componentWillMount() {
-    this.buildScreenSpecText();
-    this.checkOrientation();
+    if (Platform.OS === 'android') {
+      this.buildScreenSpecText();
+      this.checkOrientation();
+    }
   }
 
   buildScreenSpecText = () => {
