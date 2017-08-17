@@ -648,6 +648,10 @@
 						LastSwiftMigration = 0830;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 6WX233N4N3;
+						ProvisioningStyle = Manual;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -1121,6 +1125,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 6WX233N4N3;
 				INFOPLIST_FILE = MyAwesomeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1128,7 +1133,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.britishgas.ReactNativeMobileExample;
 				PRODUCT_NAME = MyAwesomeProject;
+				PROVISIONING_PROFILE = "7025d876-25a0-496c-8638-206cbfedc38f";
+				PROVISIONING_PROFILE_SPECIFIER = "React Native Mobile Example Development";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1137,7 +1145,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6WX233N4N3;
 				INFOPLIST_FILE = MyAwesomeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1145,7 +1155,10 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.britishgas.ReactNativeMobileExample;
 				PRODUCT_NAME = MyAwesomeProject;
+				PROVISIONING_PROFILE = "53dc0be6-aa6c-4ca0-96cb-09df8e6c8d74";
+				PROVISIONING_PROFILE_SPECIFIER = "React Native Mobile Example Distribution";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
