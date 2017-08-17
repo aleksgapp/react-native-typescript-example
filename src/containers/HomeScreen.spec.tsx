@@ -14,7 +14,7 @@ import { fetchUser, fetchMessages } from '../test/MockActions';
 
 const initialState = {user: null, messages: null};
 const mockStoreObj = mockStore(initialState);
-const expectedActions = [ { type: constants.REQUEST_USER }, { type: constants.REQUEST_MESSAGES } ];
+const expectedActions = [ { type: constants.REQUEST_USER } ];
 
 describe('Home tests', () => {
 
@@ -36,7 +36,7 @@ describe('Home tests', () => {
     expect(fetchUser).not.toHaveBeenCalled();
     mockStoreObj.dispatch(fetchUser());
     expect(fetchUser).toHaveBeenCalled();
-    expect(mockStoreObj.getActions().length).toEqual(3);
+    expect(mockStoreObj.getActions().length).toEqual(2);
   });
 
   it('renders the screen correctly', () => {
@@ -44,8 +44,7 @@ describe('Home tests', () => {
     const screenJson = screen.toJSON();
     expect(screenJson.children).not.toBeNull;
     if (screenJson.children && screenJson.children.length) {
-      expect(screenJson.children.length).toEqual(1);
-      expect(screenJson.children[0]).toEqual('Loading');
+      expect(screenJson.children.length).toEqual(2);
     }
   });
 });

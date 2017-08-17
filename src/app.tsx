@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {
+  Alert,
+  AlertIOS,
   StyleSheet,
   View,
   Platform,
@@ -11,8 +13,11 @@ import { User, Message } from './types';
 import Header from './components/Header';
 import { Provider } from 'react-redux';
 import store from './store';
+
 import ToastAndroidNativeModule from './components/ToastNativeAndroid';
 import UIAndroidNativeModule from './components/UIAndroidNativeModule';
+
+import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 /**
  * PropTypes definition for the App
@@ -30,6 +35,7 @@ export interface State {
   height: string;
   width: string;
   orientation: string;
+  errorMessage: string;
 }
 
 /**
@@ -40,7 +46,7 @@ export default class App extends React.PureComponent<Props, State> {
   constructor() {
     super();
     this.testCallback = this.testCallback.bind(this);
-    this.state = { density: '', densityDpi: '', height: '', width: '', orientation: '' };
+    this.state = { density: '', densityDpi: '', height: '', width: '', orientation: '', errorMessage: '' };
   }
   componentWillMount() {
     if (Platform.OS === 'android') {
@@ -48,7 +54,35 @@ export default class App extends React.PureComponent<Props, State> {
       this.checkOrientation();
     }
   }
-
+  componentDidMount() {
+    if (Platform.OS === 'android') {
+      FingerprintScanner
+      .authenticate({ onAttempt: this.handleAuthenticationAttempted })
+      .then(() => {
+        Alert.alert('Fingerprint Authentication', 'Authenticated successfully');
+      })
+      .catch((error) => {
+        this.setState({ errorMessage: error.message });
+      });
+    } else {
+      FingerprintScanner
+      .authenticate({ description: 'Scan your fingerprint on the device scanner to continue' })
+      .then(() => {
+        AlertIOS.alert('Authenticated successfully');
+      })
+      .catch((error) => {
+        AlertIOS.alert(error.message);
+      });
+    }
+  }
+  componentWillUnmount() {
+    if (Platform.OS === 'android') {
+      FingerprintScanner.release();
+    }
+  }
+  handleAuthenticationAttempted = (error) => {
+    this.setState({ errorMessage: error.message });
+  };
   buildScreenSpecText = () => {
     if (Platform.OS === 'android') {
       UIAndroidNativeModule.getScreenSize(this.testCallback);
