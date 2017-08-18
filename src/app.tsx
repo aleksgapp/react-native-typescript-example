@@ -55,6 +55,7 @@ export default class App extends React.PureComponent<Props, State> {
     }
   }
   componentDidMount() {
+    /*
     if (Platform.OS === 'android') {
       FingerprintScanner
       .authenticate({ onAttempt: this.handleAuthenticationAttempted })
@@ -74,11 +75,14 @@ export default class App extends React.PureComponent<Props, State> {
         AlertIOS.alert(error.message);
       });
     }
+    */
   }
   componentWillUnmount() {
+    /*
     if (Platform.OS === 'android') {
       FingerprintScanner.release();
     }
+    */
   }
   handleAuthenticationAttempted = (error) => {
     this.setState({ errorMessage: error.message });

@@ -4,6 +4,7 @@ import {
   Text,
   Image,
   Animated,
+  Easing,
   View
 } from 'react-native';
 
@@ -48,7 +49,7 @@ export default class InboxItem extends React.PureComponent<Props, State> {
   constructor() {
     super();
     this.state = {
-      fadeAnim: new Animated.Value(0),
+      fadeAnim: new Animated.Value(0.3),
     };
   }
 
@@ -58,14 +59,18 @@ export default class InboxItem extends React.PureComponent<Props, State> {
         this.state.fadeAnim,            // The animated value to drive
         {
           toValue: 1,                   // Animate to opacity: 1 (opaque)
-          duration: 700,              // Make it take a while
+          duration: 750,              // Make it take a while
+          easing: Easing.circle,
+          useNativeDriver: true
         }
       ),
       Animated.timing(                  // Animate over time
         this.state.fadeAnim,            // The animated value to drive
         {
-          toValue: 0,                   // Animate to opacity: 1 (opaque)
-          duration: 700,              // Make it take a while
+          toValue: 0.3,                   // Animate to opacity: 1 (opaque)
+          duration: 750,              // Make it take a while
+          easing: Easing.circle,
+          useNativeDriver: true
         }
       )
     ]).start((event) => {
