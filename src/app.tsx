@@ -18,6 +18,7 @@ import ToastAndroidNativeModule from './components/ToastNativeAndroid';
 import UIAndroidNativeModule from './components/UIAndroidNativeModule';
 
 import FingerprintScanner from 'react-native-fingerprint-scanner';
+import AndroidChartView from './components/AndroidChartView';
 
 /**
  * PropTypes definition for the App
@@ -114,6 +115,7 @@ export default class App extends React.PureComponent<Props, State> {
       <Provider store={store}>
         <View style={styles.container}>
           <Header title='InboxApp' avatar='G' />
+          <AndroidChartView backgroundColour={0xFF000000} chartColour={0xFFFFFF0} />
           {Platform.OS === 'android' && <Text>>Native UI density: {density} dpi: {densityDpi} height: {height} width: {width}</Text>}
           {Platform.OS === 'android' && <Text>>Orientation: {orientation}</Text>}
           <HomeScreen />
